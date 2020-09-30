@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+    <section class="contact-section">
+        <div class="row">
+            <div class="col-md-6 col-12 d-flex align-items-center justify-content-center pt-4">
+                <div class="wrapper">
+                    <h2>Contact us</h2>
+                    <div id="error_message"></div>
+                    <form id="myform" onsubmit="return validate();">
+                        <div class="input_field">
+                            <input type="text" placeholder="Name" id="name" name="name">
+                        </div>
+                        <div class="input_field">
+                            <input type="text" placeholder="Subject" id="subject" name="subject">
+                        </div>
+                        <div class="input_field">
+                            <input type="text" placeholder="Phone" id="phone" name="phone">
+                        </div>
+                        <div class="input_field">
+                            <input type="text" placeholder="Email" id="email" name="email">
+                        </div>
+                        <div class="input_field">
+                            <textarea placeholder="Message" id="message" name="message"></textarea>
+                        </div>
+                        <div class="btn">
+                            <input type="submit" value="Submit" name="button" id="btn" onclick="AddRow()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 p-4">
+                <div class="form-listing">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped" id="show">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Subject</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="listing-section">
+        <div class="row">
+
+        </div>
+    </section>
+
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script>
+        var list1 = [];
+        var list2 = [];
+        var list3 = [];
+        var list4 = [];
+        var list5 = [];
+
+        var n = 1;
+        var x = 0;
+
+        function AddRow() {
+            var AddRown = document.getElementById("show");
+            var NewRow = AddRown.insertRow(n);
+
+            list1[x] = document.getElementById("name").value;
+            list2[x] = document.getElementById("subject").value;
+            list3[x] = document.getElementById("phone").value;
+            list4[x] = document.getElementById("email").value;
+            list5[x] = document.getElementById("message").value;
+
+            var cel1 = NewRow.insertCell(0);
+            var cel2 = NewRow.insertCell(1);
+            var cel3 = NewRow.insertCell(2);
+            var cel4 = NewRow.insertCell(3);
+            var cel5 = NewRow.insertCell(4);
+
+            cel1.innerHTML = list1[x];
+            cel2.innerHTML = list2[x];
+            cel3.innerHTML = list3[x];
+            cel4.innerHTML = list4[x];
+            cel5.innerHTML = list5[x];
+
+            n++;
+            x++;
+
+        }
+    </script>
+
+</body>
+
+</html>
